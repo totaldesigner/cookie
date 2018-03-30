@@ -1,9 +1,13 @@
 {
   "expo": {
-    "name": "doodle",
-    "slug": "doodle",
-    "githubUrl": "https://github.com/totaldesigner/doodle",
-    "sdkVersion": "24.0.0",
+    "sdkVersion": "26.0.0",
+    "packagerOpts": {
+      "sourceExts": [
+        "ts",
+        "tsx"
+      ],
+      "transformer": "node_modules/react-native-typescript-transformer/index.js"
+    },
     "icon": "./icon.png",
     "orientation": "portrait",
     "loading": {
@@ -13,12 +17,12 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "bundleIdentifier": "com.doodle.totaldesigner",
+      "bundleIdentifier": "com.totaldesigner.doodle",
       "buildNumber": "1.0.10",
       "supportsTablet": true
     },
     "android": {
-      "package": "com.doodle.totaldesigner",
+      "package": "com.totaldesigner.doodle",
       "versionCode": 16
     },
     "version": "1.0.0"
