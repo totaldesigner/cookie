@@ -8,8 +8,10 @@ import {
 
 interface GradientButtonProps {
   colors?: any
+  rkType?: string
   style?: any
   text: string
+  onPress: () => any
 }
 
 interface GradientButtonState {

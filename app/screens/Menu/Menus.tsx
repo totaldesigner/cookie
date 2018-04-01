@@ -1,6 +1,13 @@
 import * as React from 'react'
+import { Image } from 'react-native'
+import { FontIcons } from '../../assets/icons'
 import * as Routes from '../../config/navigation/routesBuilder'
-import { CategoryMenu } from './CategoryMenu'
+
+import { Camera } from '../Camera'
+import { Edit } from '../Edit'
+import { Gallery } from '../Gallery'
+import { Home } from '../Home'
+import { Search } from '../Search'
 
 interface MenuProps {
   navigation: any
@@ -10,101 +17,57 @@ interface MenuState {
   /* */
 }
 
-export class LoginMenu extends React.Component<MenuProps, MenuState> {
+export class HomeMenu extends React.Component<MenuProps, MenuState> {
   static navigationOptions = {
-    title: 'Login'.toUpperCase(),
-  };
+    title: 'Home'.toUpperCase(),
+  }
   render() {
     return (
-      <CategoryMenu navigation={this.props.navigation} items={Routes.LoginRoutes} />
+      <Home navigation={this.props.navigation} />
     )
   }
 }
 
-export class NavigationMenu extends React.Component<MenuProps, MenuState> {
-  static navigationOptions = {
-    title: 'Navigation'.toUpperCase(),
-  };
-  render() {
-    return (
-      <CategoryMenu navigation={this.props.navigation} items={Routes.NavigationRoutes} />
-    )
-  }
-}
-
-export class SocialMenu extends React.Component<MenuProps, MenuState> {
+export class SearchMenu extends React.Component<MenuProps, MenuState> {
   static navigationOptions = {
     title: 'Social'.toUpperCase(),
-  };
+  }
   render() {
     return (
-      <CategoryMenu navigation={this.props.navigation} items={Routes.SocialRoutes} />
+      <Search />
     )
   }
 }
 
-export class ArticleMenu extends React.Component<MenuProps, MenuState> {
+export class CameraMenu extends React.Component<MenuProps, MenuState> {
   static navigationOptions = {
-    title: 'Articles'.toUpperCase(),
-  };
+    title: 'Camera'.toUpperCase(),
+  }
   render() {
     return (
-      <CategoryMenu navigation={this.props.navigation} items={Routes.ArticleRoutes} />
+      <Camera navigation={this.props.navigation} />
     )
   }
 }
 
-export class MessagingMenu extends React.Component<MenuProps, MenuState> {
+export class EditMenu extends React.Component<MenuProps, MenuState> {
   static navigationOptions = {
-    title: 'Messaging'.toUpperCase(),
-  };
-  render() {
-    return (
-      <CategoryMenu navigation={this.props.navigation} items={Routes.MessagingRoutes} />
-    )
+    title: 'Edit'.toUpperCase(),
   }
-} 
-
-export class DashboardMenu extends React.Component<MenuProps, MenuState> {
-  static navigationOptions = {
-    title: 'Dashboards'.toUpperCase(),
-  };
   render() {
     return (
-      <CategoryMenu navigation={this.props.navigation} items={Routes.DashboardRoutes} />
+      <Edit navigation={this.props.navigation} />
     )
   }
 }
 
-export class WalkthroughMenu extends React.Component<MenuProps, MenuState> {
+export class GalleryMenu extends React.Component<MenuProps, MenuState> {
   static navigationOptions = {
-    title: 'Walkthrough'.toUpperCase(),
-  };
-  render() {
-    return (
-      <CategoryMenu navigation={this.props.navigation} items={Routes.WalkthroughRoutes} />
-    )
+    title: 'Gallery'.toUpperCase(),
   }
-}
-
-export class EcommerceMenu extends React.Component<MenuProps, MenuState> {
-  static navigationOptions = {
-    title: 'Ecommerce'.toUpperCase(),
-  };
   render() {
     return (
-      <CategoryMenu navigation={this.props.navigation} items={Routes.EcommerceRoutes} />
-    )
-  }
-}
-
-export class OtherMenu extends React.Component<MenuProps, MenuState> {
-  static navigationOptions = {
-    title: 'Other'.toUpperCase(),
-  };
-  render() {
-    return (
-      <CategoryMenu navigation={this.props.navigation} items={Routes.OtherRoutes} />
+      <Gallery />
     )
   }
 }

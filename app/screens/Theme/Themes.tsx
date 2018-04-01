@@ -9,7 +9,7 @@ import { scale, scaleVertical } from '../../utils/scale'
 export class Themes extends React.Component {
   static navigationOptions = {
     title: 'Theme'.toUpperCase(),
-  };
+  }
 
   constructor(props) {
     super(props)
@@ -39,6 +39,13 @@ export class Themes extends React.Component {
           <Image style={styles.image} source={require('../../assets/images/lightThemeImage.png')} />
           <GradientButton
             text="APPLY"
+            onPress={() => {
+              StatusBar.setBarStyle('dark-content', true)
+              if (Platform.OS === 'android') {
+                StatusBar.setBackgroundColor(DoodleTheme.colors.screen.base)
+              }
+              RkTheme.setTheme(DoodleTheme)
+            }}
           />
         </View>
         <View style={styles.container}>
@@ -46,6 +53,13 @@ export class Themes extends React.Component {
           <Image style={styles.image} source={require('../../assets/images/darkThemeImage.png')} />
           <GradientButton
             text="APPLY"
+            onPress={() => {
+              RkTheme.setTheme(DarkDoodleTheme)
+              StatusBar.setBarStyle('light-content', true)
+              if (Platform.OS === 'android') {
+                StatusBar.setBackgroundColor(DarkDoodleTheme.colors.screen.base)
+              }
+            }}
           />
         </View>
       </View>

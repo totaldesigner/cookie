@@ -27,27 +27,26 @@ function getCurrentRouteName(navigationState) {
 }
 
 const SideMenu = withRkTheme(Screens.SideMenu) as any
-const renderSideMenu = (props) => <SideMenu {...props} />
-const DoodleApp = StackNavigator({
+const Main = StackNavigator({
   First: {
-    screen: Screens.SplashScreen,
+    screen: Screens.Splash,
   },
   Home: {
     screen: DrawerNavigator({ ...AppRoutes }, {
       drawerOpenRoute: 'DrawerOpen',
       drawerCloseRoute: 'DrawerClose',
       drawerToggleRoute: 'DrawerToggle',
-      contentComponent: (props) => renderSideMenu(props)
+      contentComponent: (props) => <SideMenu {...props} />,
     }),
   },
 }, {
-    headerMode: 'none',
-  })
+  headerMode: 'none',
+})
 
 export default class App extends React.Component {
   state = {
     loaded: false,
-  };
+  }
 
   componentWillMount() {
     this.loadAssets()
@@ -64,7 +63,7 @@ export default class App extends React.Component {
       'Roboto-Light': require('./assets/fonts/Roboto-Light.ttf'),
     })
     this.setState({ loaded: true })
-  };
+  }
 
   handleNavigationStateChange = (prevState, currentState) => {
     const currentScreen = getCurrentRouteName(currentState)
@@ -82,10 +81,12 @@ export default class App extends React.Component {
 
     return (
       <View style={{ flex: 1 }}>
-        <DoodleApp
+        <Main
           onNavigationStateChange={this.handleNavigationStateChange}
         />
       </View>
     )
   }
 }
+
+Expo.registerRootComponent(App)

@@ -39,15 +39,15 @@ interface RkSwitchState {
 }
 
 export class RkSwitch extends RkComponent<RkSwitchProps, RkSwitchState> {
-  componentName = 'RkSwitch';
+  componentName = 'RkSwitch'
   typeMapping = {
     container: {
       onColor: 'onColor',
       offColor: 'offColor',
     },
     thumb: {},
-  };
-  selectedType = 'selected';
+  }
+  selectedType = 'selected'
   private offset
   private handlerSize
   private panResponder
@@ -96,7 +96,7 @@ export class RkSwitch extends RkComponent<RkSwitchProps, RkSwitchState> {
 
   onPanResponderGrant = () => {
     this.animateHandler(height * 0.9)
-  };
+  }
 
   onPanResponderMove = (evt, gestureState) => {
     const { value } = this.state
@@ -104,7 +104,7 @@ export class RkSwitch extends RkComponent<RkSwitchProps, RkSwitchState> {
     this.setState({
       toggleable: value ? (gestureState.dx < 10) : (gestureState.dx > -10),
     })
-  };
+  }
 
   onPanResponderRelease = () => {
     const { toggleable } = this.state
@@ -115,7 +115,7 @@ export class RkSwitch extends RkComponent<RkSwitchProps, RkSwitchState> {
         this.toggleSwitch(onValueChange)
       }
     }
-  };
+  }
 
   toggleSwitch = (result, callback?) => {
     const { value, switchAnimation } = this.state
@@ -132,7 +132,7 @@ export class RkSwitch extends RkComponent<RkSwitchProps, RkSwitchState> {
       switchAnimation.setValue(toValue ? -1 : 1)
     })
 
-  };
+  }
 
   animateSwitch = (value, callback?) => {
     const { switchAnimation } = this.state
@@ -144,7 +144,7 @@ export class RkSwitch extends RkComponent<RkSwitchProps, RkSwitchState> {
         easing: Easing.linear,
       }
     ).start(callback)
-  };
+  }
 
   animateHandler = (value, callback = () => null) => {
     const { handlerAnimation } = this.state
@@ -156,7 +156,7 @@ export class RkSwitch extends RkComponent<RkSwitchProps, RkSwitchState> {
         easing: Easing.linear,
       }
     ).start(callback)
-  };
+  }
 
   render() {
     const { switchAnimation, handlerAnimation, left, value } = this.state

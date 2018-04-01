@@ -28,7 +28,6 @@ class DataProvider {
     return _.find(articles, x => x.id === id)
   }
 
-
   getConversation(userId = 1) {
     return _.find(conversations, x => x.withUser.id === userId)
   }

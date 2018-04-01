@@ -21,15 +21,15 @@ interface RkSwitchState {
 }
 
 export class RkSwitch extends RkComponent<RkSwitchProps, RkSwitchState> {
-  componentName = 'RkSwitch';
+  componentName = 'RkSwitch'
   typeMapping = {
     container: {
       onColor: 'onColor',
       offColor: 'offColor',
     },
     main: {},
-  };
-  selectedType = 'selected';
+  }
+  selectedType = 'selected'
   private onChange
 
   constructor(props) {

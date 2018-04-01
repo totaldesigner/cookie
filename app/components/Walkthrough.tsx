@@ -34,7 +34,7 @@ export class Walkthrough extends React.Component<WalkthroughProps, WalkthroughSt
         {item}
       </View>
     )
-  };
+  }
 
   _onScrollEnd(e) {
     const contentOffset = e.nativeEvent.contentOffset

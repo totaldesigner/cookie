@@ -10,8 +10,9 @@ import { FontAwesome } from '../../assets/icons'
 interface SocialBarProps {
   comments?: number
   likes?: number
+  rkType?: string
   shares?: number
-  showLabel?: string
+  showLabel?: boolean
 }
 
 interface SocialBarState {
@@ -21,13 +22,13 @@ interface SocialBarState {
 }
 
 export class SocialBar extends RkComponent<SocialBarProps, SocialBarState> {
-  componentName = 'SocialBar';
+  componentName = 'SocialBar'
   typeMapping = {
     container: {},
     section: {},
     icon: {},
     label: {},
-  };
+  }
   private likes
   private comments
   private shares

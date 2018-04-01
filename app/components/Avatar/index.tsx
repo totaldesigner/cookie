@@ -13,6 +13,7 @@ import { FontAwesome } from '../../assets/icons'
 interface AvatarProps {
   badge?: any
   img: any
+  rkType?: string
   style?: string
 }
 
@@ -21,13 +22,13 @@ interface AvatarState {
 }
 
 export class Avatar extends RkComponent<AvatarProps, AvatarState> {
-  componentName = 'Avatar';
+  componentName = 'Avatar'
   typeMapping = {
     container: {},
     image: {},
     badge: {},
     badgeText: {},
-  };
+  }
 
   constructor(props) {
     super(props)

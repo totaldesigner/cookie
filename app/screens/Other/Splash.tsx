@@ -8,16 +8,16 @@ import { scale, scaleVertical } from '../../utils/scale'
 
 const timeFrame = 500
 
-interface SplashScreenProps {
-  navigation: any;
+interface SplashProps {
+  navigation: any
 }
 
-interface SplashScreenState {
-  progress: any;
+interface SplashState {
+  progress: any
 }
 
-export class SplashScreen extends React.Component<SplashScreenProps, SplashScreenState> {
-  private timer;
+export class Splash extends React.Component<SplashProps, SplashState> {
+  private timer
 
   constructor(props) {
     super(props)

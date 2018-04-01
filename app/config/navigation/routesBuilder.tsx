@@ -1,8 +1,9 @@
 import * as _ from 'lodash'
 import * as React from 'react'
+import { Image } from 'react-native'
 import { withRkTheme } from 'react-native-ui-kitten'
-import { StackNavigator } from 'react-navigation'
-import { NavBar } from '../../components/index'
+import { StackNavigator, TabBarBottom, TabNavigator } from 'react-navigation'
+import { NavBar } from '../../components'
 import {
   MainRoutes,
   MenuRoutes,
@@ -27,33 +28,40 @@ const flatRoutes = {};
   }
 })
 
-const ThemedNavigationBar = withRkTheme(NavBar) as any
+const ThemedNavBar = withRkTheme(NavBar) as any
 
-const DrawerRoutes = Object.keys(main).reduce((routes, name) => {
+const Routes = Object.keys(main).reduce((routes, name) => {
   const stackName = name
   routes[stackName] = {
     name: stackName,
-    screen: StackNavigator(flatRoutes, {
-      initialRouteName: name,
-      headerMode: 'screen',
-      cardStyle: { backgroundColor: 'transparent' },
-      transitionConfig: transition,
-      navigationOptions: ({ navigation, screenProps }) => ({
-        gesturesEnabled: false,
-        header: (headerProps) => <ThemedNavigationBar navigation={navigation} headerProps={headerProps} />
+    screen: TabNavigator(flatRoutes, {
+      navigationOptions: ({ navigation }) => ({
+        tabBarIcon: ({ focused, tintColor }) => {
+          // const { routeName } = navigation.state;
+          // const iconName = `evilicons-${routeName.toLowerCase()}${focused ? '' : ''}`;
+          return <Image
+            fadeDuration={0}
+            source={require('../../assets/icons/iconPlus.png')}
+            style={{ height: 20, width: 20 }}
+          />
+        },
       }),
+      animationEnabled: true,
+      lazy: true,
+      swipeEnabled: true,
+      tabBarComponent: TabBarBottom,
+      tabBarOptions: {
+        showLabel: false,
+      },
+      tabBarPosition: 'bottom',
     }),
   }
   return routes
 }, {})
 
-export const AppRoutes = DrawerRoutes
-export const LoginRoutes = _.find(MainRoutes, { id: 'LoginMenu' }).children
-export const NavigationRoutes = _.find(MainRoutes, { id: 'NavigationMenu' }).children
-export const SocialRoutes = _.find(MainRoutes, { id: 'SocialMenu' }).children
-export const ArticleRoutes = _.find(MainRoutes, { id: 'ArticlesMenu' }).children
-export const MessagingRoutes = _.find(MainRoutes, { id: 'MessagingMenu' }).children
-export const DashboardRoutes = _.find(MainRoutes, { id: 'DashboardsMenu' }).children
-export const WalkthroughRoutes = _.find(MainRoutes, { id: 'WalkthroughMenu' }).children
-export const EcommerceRoutes = _.find(MainRoutes, { id: 'EcommerceMenu' }).children
-export const OtherRoutes = _.find(MainRoutes, { id: 'OtherMenu' }).children
+export const AppRoutes = Routes
+export const HomeRoutes = _.find(MainRoutes, { id: 'Home' }).children
+export const SearchRoutes = _.find(MainRoutes, { id: 'Search' }).children
+export const CameraRoutes = _.find(MainRoutes, { id: 'Camera' }).children
+export const EditRoutes = _.find(MainRoutes, { id: 'Edit' }).children
+export const GalleryRoutes = _.find(MainRoutes, { id: 'Gallery' }).children
