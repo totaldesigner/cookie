@@ -9,4 +9,4 @@ describe('Testing App component', () => {
     expect(rendered).toMatchSnapshot()
     expect(rendered).toBeTruthy()
   })
-}
+})

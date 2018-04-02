@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native'
-import { FaceDetector, RNCamera } from 'react-native-camera'
+// import { RNCamera } from 'react-native-camera'
 import {
   RkCard,
   RkStyleSheet,
@@ -40,14 +40,14 @@ export class Camera extends React.Component<CameraProps, CameraState> {
   render() {
     return (
       <View style={styles.container}>
-        <RNCamera
+        {/* <RNCamera
           ref={ref => this.camera = ref}
           style={styles.preview}
           type={RNCamera.Constants.Type.back}
           flashMode={RNCamera.Constants.FlashMode.on}
           permissionDialogTitle={'Permission to use camera'}
           permissionDialogMessage={'We need your permission to use your camera phone'}
-        />
+        /> */}
         <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center', }}>
           <TouchableOpacity
             onPress={this.takePicture}
